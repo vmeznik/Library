@@ -1,0 +1,48 @@
+
+2022/09/21 16:44:12 Connection to Db Established
+2022/09/21 16:53:53 Connection to Db Established
+2022/09/21 16:53:53 Could not read request because book request was null
+2022/09/21 16:54:52 Connection to Db Established
+2022/09/21 16:54:52 Could not read request because book request was null
+2022/09/21 17:07:17 Connection to Db Established
+2022/09/21 17:07:17 Could not read request because book request was null
+2022/09/21 17:08:09 Connection to Db Established
+2022/09/21 17:08:09 Could not read request because book request was null
+2022/09/21 17:17:44 Connection to Db Established
+2022/09/21 17:17:44 Could not read request because book request was null
+2022/09/21 17:18:17 Connection to Db Established
+2022/09/21 17:18:17 Could not read request because book request was null
+2022/09/21 17:20:22 Connection to Db Established
+2022/09/21 17:20:22 Could not read request because book request was null
+2022/09/21 17:23:06 Connection to Db Established
+2022/09/21 17:23:06 Could not read request because book request was null
+2022/09/21 17:33:16 Connection to Db Established
+2022/09/21 17:33:16 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:34:17 Connection to Db Established
+2022/09/21 17:34:17 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:34:17 Status of a book with id: 1 updated to open
+2022/09/21 17:34:22 Connection to Db Established
+2022/09/21 17:34:22 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:34:22 Status of a book with id: 1 updated to open
+2022/09/21 17:35:14 Connection to Db Established
+2022/09/21 17:35:14 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:36:10 Connection to Db Established
+2022/09/21 17:36:10 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:36:10 Status of a book with id: 1 updated to open
+2022/09/21 17:36:10 Status of a book with id: 1 updated to open
+2022/09/21 17:37:44 Connection to Db Established
+2022/09/21 17:37:44 bla,blabla,blabla,balalwd- inserted
+2022/09/21 17:37:44 Status of a book with id: 1 updated to open
+2022/09/21 17:37:44 Status of a book with id: 1 updated to close
+2022/09/24 08:57:01 Connection to Db Established
+2022/09/24 08:57:01 bla,blabla,blabla,balalwd- inserted
+2022/09/24 08:57:01 Status of a book with id: 1 updated to open
+2022/09/24 08:57:01 Status of a book with id: 1 updated to close
+2022/09/24 08:57:55 Connection to Db Established
+2022/09/24 08:59:05 Status of a book with id: 7 updated to close
+2022/09/24 08:59:18 Status of a book with id: 7 updated to open
+2022/09/24 08:59:31 Book with id: 22 was deleted
+2022/09/24 09:18:57 Connection to Db Established
+2022/09/24 09:25:40 Connection to Db Established
+2022/09/24 09:47:22 Connection to Db Established
+2022/09/24 09:51:44 Connection to Db Established
