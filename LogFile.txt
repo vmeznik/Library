@@ -46,3 +46,9 @@
 2022/09/24 09:25:40 Connection to Db Established
 2022/09/24 09:47:22 Connection to Db Established
 2022/09/24 09:51:44 Connection to Db Established
+2022/10/24 16:14:33 ID: 10 null by null null - close (null) - was updated to : close
+2022/10/24 16:14:46 ID: 10 null by null null - open (null) - was updated to : open
+2022/10/24 16:14:52 Book with id: 14 was removed
+2022/10/24 16:15:22 ID: 10 null by null null - close (null) - was updated to : close
+2022/10/24 16:29:13 ID: 0 toto by jen pokus - open (je ) - added
+2022/10/24 16:29:19 Book with id: 33 was removed

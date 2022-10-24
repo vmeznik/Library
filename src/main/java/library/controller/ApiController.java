@@ -7,25 +7,23 @@ import org.json.JSONArray;
 import org.springframework.web.bind.annotation.*;
 import library.repository.BookRepository;
 
-import javax.persistence.PostUpdate;
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController()
 public class ApiController {
     private final BookRepository bookRepository;
-    private String status;
     private final Gson gson = new Gson();
 
     public ApiController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public void addBook(@RequestBody Book book) {
         if (book == null) {
             Logger.getInstance().log("Something went wrong while adding book , value is null");
         } else {
+            Logger.getInstance().log(book + "- added");
             bookRepository.addBook(book.getTitle(), book.getGenre(),
                     book.getAuthorsFirstName(), book.getAuthorsLastName(),
                     book.getStatus());
@@ -33,55 +31,49 @@ public class ApiController {
     }
 
     @DeleteMapping("/remove")
-    public void deleteBook(@RequestBody Book book) {
-        if (book == null) {
-            Logger.getInstance().log("Something went wrong while deleting book , value is null");
+    public void deleteBook(@RequestParam(value = "id", defaultValue = "") String id) {
+        if (id.equalsIgnoreCase("")) {
+            Logger.getInstance().log("Something went wrong while deleting book , value is empty");
         } else {
-            bookRepository.deleteById(book.getId());
+            Logger.getInstance().log("Book with id: " + id + " was removed");
+            bookRepository.deleteById(Integer.parseInt(id));
         }
     }
 
-    @PostMapping("/update")
-    public void updateBook(@RequestBody Book book,@RequestParam(value = "id",defaultValue = "")String id) {
+    @PutMapping("/update")
+    public void updateBook(@RequestBody Book book) {
         if (book == null) {
             Logger.getInstance().log("Something went wrong while updating book , value is null");
         } else {
+            Logger.getInstance().log(book + "- was updated to : " + book.getStatus());
             bookRepository.updateStatus(book.getStatus(), book.getId());
         }
     }
 
-    @GetMapping("/search")
-    public String searchBook(@RequestBody Book book,
-                             @RequestParam(value = "onlyOpen", defaultValue = "false") String onlyOpen) {
+    @PostMapping("/search")
+    public ArrayList<Book> searchBook(@RequestBody Book book,
+                                      @RequestParam(value = "onlyOpen", defaultValue = "false") String onlyOpen) {
+        ArrayList<Book> books;
         if (Boolean.parseBoolean(onlyOpen)) {
-            status = "open";
+            books = bookRepository.findOnlyOpen(book.getTitle(), book.getGenre(),
+                    book.getAuthorsFirstName(), book.getAuthorsLastName(),"open");
         } else {
-            status = "o";
+            books = bookRepository.find(book.getTitle(), book.getGenre(),
+                    book.getAuthorsFirstName(), book.getAuthorsLastName());
         }
-        List<Book> books = bookRepository.find(book.getTitle(), book.getGenre(),
-                book.getAuthorsFirstName(), book.getAuthorsLastName(),this.status);
-        return  convertToJson(books);
+        return books;
     }
 
-    @GetMapping("/searchAll")
-    public List<Book> searchAllBooks(@RequestParam(value = "onlyOpen", defaultValue = "false") String onlyOpen) {
+    @PostMapping("/searchAll")
+    public ArrayList<Book> searchAllBooks(@RequestParam(value = "onlyOpen", defaultValue = "false") String onlyOpen) {
+        ArrayList<Book> books;
         if (Boolean.parseBoolean(onlyOpen)) {
-            status = "open";
+            books = bookRepository.findAllOnlyOpen("open");
         } else {
-           status = "o";
+            books = bookRepository.findAll();
         }
-        List<Book> books = bookRepository.findAll(this.status);
-        return books; //convertToJson(books);
+        return books;
     }
 
-    private String convertToJson(List<Book> list) {
-        if ( list != null) {
-            ArrayList<String> convertedList = new ArrayList<>();
-            for (Book value : list) {
-                convertedList.add(gson.toJson(value));
-            }
-            return gson.toJson(new JSONArray(convertedList));
-        }else throw new NullPointerException("Book request is null");
-    }
 
 }
